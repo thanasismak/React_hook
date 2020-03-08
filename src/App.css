@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+}
+.header11 {
+  flex-direction: row;
+  background-color: #282c34;
+  color: white;
+  padding-top: 15px;
+  font-family: Arial;
+  height: 50vh;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+._Navs {
+  display: inline-flex;
+  list-style: none;
+}
+._Navs li a:-webkit-any-link  {
+  padding: 8px 15px;
+  color: white;
+	/* text-decoration: none; */
+	font-weight: bold;
+}
+._Navs li a:hover {
+  color: #c00;
+  
+}
+._Navs2 {
+  display: inline-flex;
+  list-style: none;
+}
+._Navs2 li{
+  padding: 8px 15px;
+  color: white;
+  font-weight: bold;
+}
+._Slider {
+  height: 25vh;
+  display: inline-flex;
+  align-items: center;
+}
+._Closure {
+  display: flex;
+  flex-direction: row;
+  background-color: #CFDEF3;
+  min-height: 50vh;
+  margin: 0;
+  padding: 8px 15px;
+  color: white;
+  font-weight: bold;
+  justify-content: flex-end;
+  list-style: none;
+  
+}
+.extra ._Closure {
+  padding: 8px 15px;
+  color: white;
+  font-weight: bold;
+  justify-content: flex-end;
+  list-style: none;
+}
