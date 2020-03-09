@@ -1,28 +1,36 @@
-import React from 'react';
-import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel';
+import React, { useEffect, useState } from 'react';
+import { CarouselProvider, Slider, Slide, Dot, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-
 //https://www.npmjs.com/package/pure-react-carousel#dot-
 
-const Carousel = () => {
+//data
+import sliderData from '../data/slider';
+
+const CarouselResponsive = () => {
+    const [importsliderData, setImportsliderData] = useState();
+
+    useEffect(() => {
+        setImportsliderData(sliderData);
+    }, []);
+
     return (
-        <>
+        <div className="_Slider">
             <CarouselProvider
                 naturalSlideWidth={4}
-                naturalSlideHeight={4}
-                totalSlides={2}
-                playDirection='backward'
+                totalSlides={3}
                 dragEnabled={false}
             >
-                <Slider className="_Slider" trayTag='ul' classNameAnimation="transition-duration: 0.5s">
-                    <Slide index={0}>Slide 1</Slide>
-                    <Slide index={1}>Slide 2</Slide>
-                    <DotGroup dotNumbers={2} showAsSelectedForCurrentSlideOnly={true} children>
-                        <Dot />
-                    </DotGroup>
+                <Slider>
+                    {importsliderData && importsliderData.map(o => <><Slide naturalSlideHeight="10"><h2>{o.title}</h2>< br /><img src={o.image} /><a>< br />{o.subtitle}</a></Slide></>)}
                 </Slider>
+                <DotGroup
+                    dotNumbers={3}
+                    disableActiveDots={true}
+                    showAsSelectedForCurrentSlideOnly={true}
+                >
+                </DotGroup>
             </CarouselProvider>
-        </>
+        </div>
     );
 }
-export default Carousel;
+export default CarouselResponsive;

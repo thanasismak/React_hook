@@ -1,23 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-//components
-import Carousel from './components/carousel';
-import Navbars from './components/navbars';
-import Body from './components/embendedbody';
-//style
-import './App.css';
-
-
-function App(...props) {
-  return (
-    <div className="App">
-        <div className="header11">
-          <Navbars />
-          <Carousel />
-        </div>
-        <Body />
-    </div>
-  );
-}
+import { Route,Switch } from 'react-router-dom';
+import Home from './Home';
+import Router from './Home'
+import Page2 from './components/page2';
+const App = (props) => (
+  <Router {...props}>
+    <Switch>
+      <Route exact path={'/'} component={Page2}/>
+      <Route exact path={'/Page2'} component={Page2} />
+      <Route exact path={'/Section1'} />
+      <Route exact path={'/Section2'} />
+    </Switch>
+  </Router>
+);
 
 export default App;

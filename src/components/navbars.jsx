@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import menuData from '../data/menu';
 
-const navbars = () => {
+const Navbars = () => {
+    const [result, setResult] = useState();
+
+    useEffect(() => {
+        setResult(menuData);
+        // setUser(userInfo.display);
+    }, []);
+
     return (
-        <div className='_Navs'>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
+        <div className="topnav">
+            {result && result.map(o => <a href={o.title}>{o.title}</a>)}
+            <input type="text" placeholder="Search.." />
         </div>
-    )
+    );
 }
-export default navbars;
+export default Navbars;

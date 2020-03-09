@@ -1,16 +1,23 @@
 import React from 'react';
 import { CarouselProvider, Slider, Slide, DotGroup, Dot } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+
+const handleChange = (event) => {
+    if (event.target.text === 'Section 1')
+        return event + 123123;
+        else {
+            return 2;
+        }
+};
+
 const embendedbody = () => {
     return (
         <>
-            <div className="_Closure">
-                {/* <div className="header11"> */}
-                    <div className='_Navs2'>
-                        <li><a href="#">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                    </div>
-                {/* </div> */}
+            <div className="_Closure" >
+                <nav id="topnav2" >
+                    <a onClick={handleChange}>Section 1</a>
+                    <a onClick={handleChange}>Section 2</a>
+                </nav>
             </div>
         </>
     );
