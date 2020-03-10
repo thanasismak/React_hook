@@ -21,7 +21,7 @@ const CarouselResponsive = () => {
                 dragEnabled={false}
             >
                 <Slider>
-                    {importsliderData && importsliderData.map(o => <><Slide naturalSlideHeight="10"><h2>{o.title}</h2>< br /><img src={o.image} /><a>< br />{o.subtitle}</a></Slide></>)}
+                    {importsliderData && importsliderData.map(o => <><Slide naturalSlideHeight="15"><h2>{o.title}</h2><a>< br />{o.subtitle}</a>< br /><img src={o.image} /></Slide></>)}
                 </Slider>
                 <DotGroup
                     dotNumbers={3}
