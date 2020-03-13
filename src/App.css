@@ -2,7 +2,7 @@
   text-align: center;
   background-color: #282c34;
   display: "flex";
-  justify-content:"center";
+  justify-content: "center";
   width: 100%;
   height: 100%;
 }
@@ -19,16 +19,11 @@
     transform: rotate(360deg);
   }
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 .topnav {
   overflow: hidden;
   /* background-color: #282c34; */
 }
-
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -39,11 +34,12 @@
   text-decoration: none;
   font-size: 17px;
 }
+#topnav2 {
+  text-align: right;
+  margin-bottom: 50px;
+}
 #topnav2 a {
-  float: left;
-  display: block;
   color: black;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
@@ -60,12 +56,12 @@
 
 /* Style the "active" element to highlight the current page */
 .topnav a.active {
-  background-color: #2196F3;
+  background-color: #2196f3;
   color: white;
 }
 
 /* Style the search box inside the navigation bar */
-.topnav input[type=text] {
+.topnav input[type="text"] {
   float: right;
   padding: 6px;
   border: none;
@@ -76,7 +72,8 @@
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 600px) {
-  .topnav a, .topnav input[type=text] {
+  .topnav a,
+  .topnav input[type="text"] {
     float: none;
     display: block;
     text-align: left;
@@ -84,42 +81,24 @@
     margin: 0;
     padding: 14px;
   }
-  .topnav input[type=text] {
+  .topnav input[type="text"] {
     border: 1px solid #ccc;
   }
 }
 
-._Navs2 {
-  display: inline-flex;
-  position: absolute;
-  list-style: none;
-}
-._Navs2 li{
-  padding: 8px 15px;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
-._Slider {
+/* ._Closure {
   display: flex;
-  display: inline-flex;
-  color: white;
-  justify-content: center;
-  align-items: center;
-}
-._Closure {
-  display: flex;
-  background-color: #CFDEF3;
+  background-color: #cfdef3;
   min-height: 50vh;
   padding: 8px 15px;
   color: white;
   font-weight: bold;
   justify-content: flex-end;
   list-style: none;
-}
+} */
 .page2Body {
   display: flex;
-  background-color: #CFDEF3;
+  background-color: #cfdef3;
   min-height: 50vh;
   padding: 8px 15px;
   color: black;
@@ -129,22 +108,20 @@
 }
 
 #app {
-  width: 400vh;
-  height: 30vh;
-  position: absolute;
-  top: 67%;
-  left: 83%;
+  width: "auto";
+  height: "auto";
   transform: translate(-50%, -50%);
   overflow: hidden;
   text-align: center;
 }
 
 .slider-wrapper {
-  width: 400px;
-  height: 250px;
+  /* width: 400px; */
+  height: 450px;
+  display: inline-flex;
   border: 1px solid #333;
   overflow: hidden;
-  border-radius: 4px !important;
+  /* border-radius: 4px !important; */
 }
 
 .slider {
@@ -161,28 +138,22 @@
   background: #383838;
   text-align: center;
   border-radius: 4px !important;
-  transition: all .2s linear;
-}
-
-.hide {
-  @extend .slider-item
+  transition: all 0.2s linear;
 }
 
 .buttons-wrapper {
   width: 400px;
   display: flex;
   justify-content: space-between;
-  position: absolute;
   top: 50%;
   margin-top: -15px;
+  border-radius: 4px !important;
 }
-
 .buttons-wrapper .prev-button {
-  background-image: url(http://static.birgun.net/static/images/slider-arrow-left.svg);
   background-size: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   height: 30px;
-  width: 30px;
+  width: 400px;
   border-radius: 4px;
   color: #fff;
   border: none;
@@ -191,15 +162,9 @@
   transition: all 0.2s linear;
 }
 
-.buttons-wrapper .next-button {
-  background-image: url(http://static.birgun.net/static/images/slider-arrow-right.svg);
-  @extend .prev-button;
-}
-
 .buttons-wrapper button:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
-
 
 /* indicators */
 
@@ -237,7 +202,7 @@
 }
 
 .form {
-  background: #CFDEF3;
+  background: #cfdef3;
   margin: 0 auto;
   max-width: 500px;
   margin: 0 auto;
@@ -261,7 +226,7 @@
 }
 .buttonF[type="submit"],
 .inputF[type="submit"] {
-  background: #0052D4;
+  background: #0052d4;
   color: white;
   border: none;
   margin-top: 40px;
@@ -281,3 +246,242 @@
   border-radius: 4px;
 }
 /* indicators */
+body {
+  font-family: "sans-serif";
+}
+
+/* Slideshow container */
+/* max-width: auto; */
+.slideshow-container {
+  max-width: 100px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+#tilefeature {
+  width: calc( ( ( 100% / 3 ) * 2) - 20px );
+  /* background: white; */
+  /* flex-grow: 2; */
+  margin: 10px;
+  height: 100px;
+  padding: 10px;
+}
+
+#tiles {
+  display: flex;
+  flex-flow: row wrap;
+}
+/* .roundSlider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.roundSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.roundSlider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+} */
+.range {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 400px;
+  margin-top: 10px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: rgba(59,173,227,1);
+  background: -moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
+  background: -webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
+  height: 2px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-moz-range-track {
+  -moz-appearance: none;
+  background: rgba(59,173,227,1);
+  background: -moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
+  background: -webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
+  height: 2px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 2px solid;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  max-width: 80px;
+  position: relative;
+  bottom: 11px;
+  background-color: #1d1c25;
+  cursor: -webkit-grab;
+
+  -webkit-transition: border 1000ms ease;
+  transition: border 1000ms ease;
+}
+
+input[type=range]::-moz-range-thumb {
+  -moz-appearance: none;
+  border: 2px solid;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  max-width: 80px;
+  position: relative;
+  bottom: 11px;
+  background-color: #1d1c25;
+  cursor: -moz-grab;
+  -moz-transition: border 1000ms ease;
+  transition: border 1000ms ease;
+}
+
+
+
+.range.blue::-webkit-slider-thumb {
+   border-color: rgb(59,173,227);
+}
+
+.range.ltpurple::-webkit-slider-thumb {
+   border-color: rgb(87,111,230);
+}
+
+.range.purple::-webkit-slider-thumb {
+   border-color: rgb(152,68,183);
+}
+
+.range.pink::-webkit-slider-thumb {
+   border-color: rgb(255,53,127);
+}
+
+.range.blue::-moz-range-thumb {
+   border-color: rgb(59,173,227);
+}
+
+.range.ltpurple::-moz-range-thumb {
+   border-color: rgb(87,111,230);
+}
+
+.range.purple::-moz-range-thumb {
+   border-color: rgb(152,68,183);
+}
+
+.range.pink::-moz-range-thumb {
+   border-color: rgb(255,53,127);
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  cursor: -webkit-grabbing;
+}
+
+input[type=range]::-moz-range-thumb:active {
+  cursor: -moz-grabbing;
+}

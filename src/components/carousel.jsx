@@ -1,36 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import { CarouselProvider, Slider, Slide, Dot, DotGroup } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import React, { useEffect, useState } from "react";
+import { CarouselProvider, Slider, Slide, DotGroup } from "pure-react-carousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
 //https://www.npmjs.com/package/pure-react-carousel#dot-
 
 //data
-import sliderData from '../data/slider';
+import sliderData from "../data/slider";
 
 const CarouselResponsive = () => {
     const [importsliderData, setImportsliderData] = useState();
+    const [slider, setSlider] = useState(1);
+    const [data, setData] = useState({});
 
     useEffect(() => {
         setImportsliderData(sliderData);
+        fetch(`https://voda-react-assessment.herokuapp.com/slider`, {
+            headers: new Headers({ accept: "application/json; odata=verbose" })
+        })
+            .then(res => res.json())
+            .then(res => {
+                setData({
+                    slider1: res[0],
+                    slider2: res[1],
+                    slider3: res[2]
+                });
+            });
     }, []);
 
+    const currentSlide = (value) => {
+        setSlider(value);
+    }
+
     return (
-        <div className="_Slider">
-            <CarouselProvider
-                naturalSlideWidth={4}
-                totalSlides={3}
-                dragEnabled={false}
-            >
-                <Slider>
-                    {importsliderData && importsliderData.map(o => <><Slide naturalSlideHeight="15"><h2>{o.title}</h2><a>< br />{o.subtitle}</a>< br /><img src={o.image} /></Slide></>)}
-                </Slider>
-                <DotGroup
-                    dotNumbers={3}
-                    disableActiveDots={true}
-                    showAsSelectedForCurrentSlideOnly={true}
-                >
-                </DotGroup>
-            </CarouselProvider>
+        <div className="slideshow-container ">
+            {/* {importsliderData &&
+                    importsliderData.map((o,i) => (
+                        <>
+                            <h2>{o.title}</h2>
+                            <span>
+                                <br />
+                                {o.subtitle}
+                            </span>
+                            <br />
+                            <img style={{ width: '100%' }} alt="kati2" src={o.image} />
+                        </>
+                    ))} */}
+            {data.slider1 && slider && slider === 1 && <><h2>{data.slider1.title}</h2> <span>{data.slider1.subtitle}</span> <br /> <img style={{ width: '100%' }} alt="kati2" src={data.slider1.image} /></>}
+            {data.slider2 && slider && slider === 2 && <><h2>{data.slider2.title}</h2> <span>{data.slider2.subtitle}</span> <br /> <img style={{ width: '100%' }} alt="kati2" src={data.slider2.image} /></>}
+            {data.slider3 && slider && slider === 3 && <><h2>{data.slider3.title}</h2> <span>{data.slider3.subtitle}</span> <br /> <img style={{ width: '100%' }} alt="kati2" src={data.slider3.image} /></>}
+            <div style={{ textAlign: 'center' }}>
+                <span className="dot" onClick={() => currentSlide(1)}></span>
+                <span className="dot" onClick={() => currentSlide(2)}></span>
+                <span className="dot" onClick={() => currentSlide(3)}></span>
+            </div>
         </div>
-    );
-}
+    )
+};
+
 export default CarouselResponsive;
