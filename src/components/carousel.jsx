@@ -28,9 +28,9 @@ const CarouselResponsive = () => {
             {data.slider2 && slider && slider === 2 && <><h2>{data.slider2.title}</h2> <span>{data.slider2.subtitle}</span> <br /> <img style={{ width: '100%' }} alt="kati2" src={data.slider2.image} /></>}
             {data.slider3 && slider && slider === 3 && <><h2>{data.slider3.title}</h2> <span>{data.slider3.subtitle}</span> <br /> <img style={{ width: '100%' }} alt="kati2" src={data.slider3.image} /></>}
             <div style={{ textAlign: 'center' }}>
-                <span className="dot" onClick={() => currentSlide(1)}></span>
-                <span className="dot" onClick={() => currentSlide(2)}></span>
-                <span className="dot" onClick={() => currentSlide(3)}></span>
+                <span className="dot" onClick={e => currentSlide(1)}></span>
+                <span className="dot" onClick={e => currentSlide(2)}></span>
+                <span className="dot" onClick={e => currentSlide(3)}></span>
             </div>
         </div>
     )

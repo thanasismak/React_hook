@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './Home'
 import Page2 from './components/page2';
 import Body from './components/embendedbody';

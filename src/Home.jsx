@@ -8,7 +8,7 @@ import Navbars from './components/navbars';
 import './App.css';
 
 
-const Home = (props) => {
+const Home = () => {
     return (
         <div className="App">
             <Navbars />
