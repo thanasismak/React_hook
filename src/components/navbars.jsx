@@ -22,7 +22,6 @@ const Navbars = () => {
                 <Link to={"/"}>Home</Link>
                 <Link to={"/Page2"}>Page2</Link>
             </div >
-            {/* mixBlendMode: 'multiply', */}
             <div style={{  marginLeft: 'auto', width: '100vh' }}> 
                 <Select className='react-select-container' onChange={value => handleCategories(value)} options={options} />
             </div>

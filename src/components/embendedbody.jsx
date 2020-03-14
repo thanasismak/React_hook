@@ -6,7 +6,6 @@ import Form from "../components/form";
 const Embendedbody = () => {
     const [data, setData] = useState({});
     const [tab, setTab] = useState(0);
-
     useEffect(() => {
         fetch(`https://voda-react-assessment.herokuapp.com/home`, {
             headers: new Headers({ accept: "application/json; odata=verbose" })
