@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "pure-react-carousel/dist/react-carousel.es.css";
+//components
 import Form from "../components/form";
 
 const Embendedbody = () => {
     const [data, setData] = useState({});
     const [tab, setTab] = useState(0);
-    const [index, setIndex] = useState(-1);
+
     useEffect(() => {
         fetch(`https://voda-react-assessment.herokuapp.com/home`, {
             headers: new Headers({ accept: "application/json; odata=verbose" })
@@ -21,25 +21,44 @@ const Embendedbody = () => {
             });
     }, [tab]);
 
+    const Color = (color) => {
+        if (color === 0) {
+            return "range blue";
+        }
+        else if (color === 1) {
+            return "range purple";
+        }
+        else if (color === 2) {
+            return 'range pink';
+        }
+        else {
+            return 'range ltpurple';
+        }
+    }
+
     return (
         <div style={{ backgroundColor: "#cfdef3", padding: 1 }}>
             <h4 style={{ textAlign: "center" }}>{data.description}</h4>
-            <nav id="topnav2">
+            <nav id="botnav">
                 <Link onClick={() => setTab(0)} to={"/Section1"}>
                     Section 1
-        </Link>
+                </Link>
                 <Link onClick={() => setTab(1)} to={"/Section2"}>
                     Section 2
-        </Link>
+                </Link>
             </nav>
 
-
             {tab === 0 && (
-                <div style={{ display: "flex", justifyContent: "space-between", padding: '50px' }}>
+                <div
+                    style={{
+                        display: "flex",
+                        padding: "50px"
+                    }}
+                >
                     {data.section1 &&
                         data.section1.map(o =>
                             o.images.map((image, i) => (
-                                <div key={image.title} id={i != 0 ? 'tilefeature' : 'tiles'}>
+                                <div key={image.title} id={i !== 0 ? "tilefeature" : "tiles"}>
                                     <img alt="kati" style={{ width: "50%" }} src={image.img} />
                                 </div>
                             ))
@@ -47,28 +66,54 @@ const Embendedbody = () => {
                 </div>
             )}
             {tab === 1 && (
-                <div style={{ margin: 40 }}>
+                <div
+                    style={{
+                        margin: 60,
+                        justifySelf: "center",
+                        flexWrap: "wrap",
+                        display: "flex"
+                    }}
+                >
                     {data.section2 &&
-                        data.section2.map((o, i) =>
-                            <div style={{ textAlign: '-webkit-center', justifySelf: 'center', flexWrap: 'wrap' }}>
-                                <h4 style={{ color: 'blue' }}>{o.title}</h4>
-                                <h3>{o.graphText}</h3>
-                                <div className="range" >
-                                    <h3>{o.stats.map(o => o.title)}</h3>
-                                    <input type="range" min="-100" max="0" value="0" className="range blue" />
+                        data.section2.map(o => (
+                            <>
+                                <div style={{ marginLeft: "10vw" }}>
+                                    <h4 style={{ color: "blue" }}>{o.title}</h4>
+                                    <h3>{o.graphText}</h3>
+                                    {o.stats.map((j, index) => (
+                                        <>
+                                            <h3>{j.title}</h3>
+                                            <input
+                                                key={index}
+                                                type="range"
+                                                min="0"
+                                                max="100"
+                                                defaultValue={j.amount / 10}
+                                                className={Color(index)}
+                                            />
+                                            {j.amount / 10}%
+                                        </>
+                                    ))}
                                 </div>
-                                <Form />
-                            </div>
-                        )
-                        // o.images.map(image => (
-                        //     <div key={image.title} style={{ display: "flex" }}>
-                        //         <img alt="kati" style={{ width: "50%" }} src={image.img} />
-                        //     </div>
-                        // ))
+                                <div
+                                    style={{
+                                        paddingLeft: "3vw",
+                                        marginLeft: "15vw",
+                                        marginTop: 35
+                                    }}
+                                >
+                                    <div style={{ textAlign: 'center' }}>
+                                        <h2>{o.formText}</h2>
+                                        <h5>We work with ecosystem leaders, corporations and starups worldwide.<br />How can we help you?</h5>
+                                        <Form key={'work'} form={(o.formLabels)} btn={o.buttonText} />
+                                    </div>
+                                </div>
+                            </>
+                        ))
                     }
                 </div>
             )}
-        </div >
+        </div>
     );
 };
 

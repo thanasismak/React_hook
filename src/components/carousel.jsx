@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { CarouselProvider, Slider, Slide, DotGroup } from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
-//https://www.npmjs.com/package/pure-react-carousel#dot-
-
-//data
-import sliderData from "../data/slider";
 
 const CarouselResponsive = () => {
-    const [importsliderData, setImportsliderData] = useState();
     const [slider, setSlider] = useState(1);
     const [data, setData] = useState({});
 
     useEffect(() => {
-        setImportsliderData(sliderData);
         fetch(`https://voda-react-assessment.herokuapp.com/slider`, {
             headers: new Headers({ accept: "application/json; odata=verbose" })
         })
@@ -32,18 +24,6 @@ const CarouselResponsive = () => {
 
     return (
         <div className="slideshow-container ">
-            {/* {importsliderData &&
-                    importsliderData.map((o,i) => (
-                        <>
-                            <h2>{o.title}</h2>
-                            <span>
-                                <br />
-                                {o.subtitle}
-                            </span>
-                            <br />
-                            <img style={{ width: '100%' }} alt="kati2" src={o.image} />
-                        </>
-                    ))} */}
             {data.slider1 && slider && slider === 1 && <><h2>{data.slider1.title}</h2> <span>{data.slider1.subtitle}</span> <br /> <img style={{ width: '100%' }} alt="kati2" src={data.slider1.image} /></>}
             {data.slider2 && slider && slider === 2 && <><h2>{data.slider2.title}</h2> <span>{data.slider2.subtitle}</span> <br /> <img style={{ width: '100%' }} alt="kati2" src={data.slider2.image} /></>}
             {data.slider3 && slider && slider === 3 && <><h2>{data.slider3.title}</h2> <span>{data.slider3.subtitle}</span> <br /> <img style={{ width: '100%' }} alt="kati2" src={data.slider3.image} /></>}

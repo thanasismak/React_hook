@@ -8,10 +8,10 @@ import Navbars from './components/navbars';
 import './App.css';
 
 
-function Home(props) {
+const Home = (props) => {
     return (
         <div className="App">
-            <Navbars/>
+            <Navbars />
             <Carousel />
         </div>
     );
